@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.9.1" last-position="0,0" last-zoom="1"
+	 default-schema="public" default-owner="postgres">
+<database name="lab10" is-template="false" allow-conns="true">
+</database>
+
+<schema name="public" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<table name="Student" hide-ext-attribs="true">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="24" y="139"/>
+	<column name="StudentID" not-null="true">
+		<type name="character" length="10"/>
+	</column>
+	<column name="StudentFName">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="StudentLName">
+		<type name="character varying" length="20"/>
+	</column>
+	<constraint name="StudentID" type="pk-constr" table="public.&quot;Student&quot;">
+		<columns names="StudentID" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="Course" hide-ext-attribs="true">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="680" y="141"/>
+	<column name="CourseID" not-null="true">
+		<type name="character" length="10"/>
+	</column>
+	<column name="CourseName">
+		<type name="character varying" length="25"/>
+	</column>
+	<constraint name="CourseId" type="pk-constr" table="public.&quot;Course&quot;">
+		<columns names="CourseID" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="Student-Course" hide-ext-attribs="true">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="368" y="365"/>
+	<column name="StudentID" not-null="true">
+		<type name="character" length="10"/>
+	</column>
+	<column name="CourseID">
+		<type name="character" length="10"/>
+	</column>
+	<column name="Grade">
+		<type name="character" length="7"/>
+	</column>
+</table>
+
+<relationship name="Register In" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Course&quot;"
+	 dst-table="public.&quot;Student-Course&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Enroll In" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Student&quot;"
+	 dst-table="public.&quot;Student-Course&quot;"
+	 src-required="false" dst-required="false"/>
+
+</dbmodel>

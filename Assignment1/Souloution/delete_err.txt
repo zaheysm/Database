@@ -1,0 +1,9 @@
+SQL Error Number: 23503
+SQL Error: update or delete on table "product_t" violates foreign key constraint "fk2_invoice_line" on table "invoice_line_t"
+The error above states that there is a foreign key connection between two tables and it will not allow me to delete a row until the connection is dropped.
+
+
+
+SQL Error Number: 42P01
+SQL Error: relation "product" does not exist
+the error because there is no table called product in the data base the correct name of the table is Product_t
